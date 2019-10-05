@@ -94,6 +94,8 @@ cm<-table(teste$Survived,prev )
 prec<-cm[2,2]/(cm[2,2]+cm[2,1])
 prec<-cm[2,2]/(cm[2,2]+cm[1,2])
 
+table(teste$Survived,prev )
+
 
 
 
