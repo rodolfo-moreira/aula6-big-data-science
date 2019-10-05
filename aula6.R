@@ -80,7 +80,7 @@ teste <- d[va[692:891],]
 
 
 #Modelagem
-mod<-ctree(Survived~Sex+Pclass+Embarked, data=d)
+mod<-ctree(Survived~Sex+Pclass+Age+Embarked+Parch+SibSp, data=d)
 
 #Previsão em teste
 p <- predict(mod, newdata=teste)
@@ -90,10 +90,9 @@ prev<-ifelse(p<.5,0,1)
 cbind(prev, teste$Survived)
 
 #matrix de confusão
-table(teste$Survived, prev)
-
-
-
+cm<-table(teste$Survived,prev )
+prec<-cm[2,2]/(cm[2,2]+cm[2,1])
+prec<-cm[2,2]/(cm[2,2]+cm[1,2])
 
 
 
